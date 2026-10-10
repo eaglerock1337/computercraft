@@ -34,4 +34,4 @@ print("Capacity =", cellCapacity * totalCells / 1000000, "Million EU")
 print("Available =", cellCapacity * full / 1000000, "Million EU")
 
 local charge = math.floor(full / totalCells * 10000) / 100
-print("Charge =", charge .. "Percent")
+print("Charge =", charge .. "%")
