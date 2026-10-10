@@ -1,7 +1,7 @@
 -- EagleRock Space Agency Printer Test Script
-local version = "2.0.2"
+local version = "2.0.3"
 
-print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
+print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 print("\n= ERSA Printer Test v" .. version .. "  =")
 print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
 local p = peripheral.find("printer")
@@ -58,5 +58,5 @@ printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 print("  Sending test page...")
 assert(p.endPage(), "Failed to send page!\nCheck " .. name .. " output slots!")
-print("  Test page sent to printer.\n")
+print("  Test page sent to " .. name .. ".\n")
 print("Printer test completed.")
