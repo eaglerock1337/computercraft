@@ -1,4 +1,4 @@
-local bootstrapVersion = "0.2.4 beta"
+local bootstrapVersion = "0.2.5 beta"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
@@ -89,11 +89,13 @@ else
 	error("Error downloading bootstrap.lua: " .. bootErr)
 end
 
-local baseSuccess, baseErr = downloadDirectory("base", "")
-if baseSuccess then
-	print("Successfully downloaded base scripts")
-else
-	error("Error downloading base scripts: " .. baseErr)
+if role ~= "base" then
+	local baseSuccess, baseErr = downloadDirectory("base", "")
+	if baseSuccess then
+		print("Successfully downloaded base scripts")
+	else
+		error("Error downloading base scripts: " .. baseErr)
+	end
 end
 
 local roleSuccess, roleErr = downloadDirectory(role, "")
