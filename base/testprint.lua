@@ -1,5 +1,5 @@
 -- EagleRock Space Agency Printer Test Script
-local version = "2.0.0"
+local version = "2.0.1"
 
 print("\nERSA Printer Test v" .. version)
 print("=-=-=-=-=-=-=-=-=-=-=-=-=\n")
@@ -20,7 +20,7 @@ if inkLevel == 0 or paperLevel == 0 then
 end
 
 print("\n  Printer is ready. Creating test page...")
-assert(p.newPage(), "Failed to create new page!\nCheck " .. name .. " printer!")
+assert(p.newPage(), "Failed to create page!\nCheck " .. name .. " output slots!")
 
 print("  Writing test page...")
 p.setPageTitle("ERSA Printer Test v" .. version)
@@ -56,6 +56,6 @@ printLine("    End of Test Page")
 printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 print("  Sending test page...")
-assert(p.endPage(), "Failed to send page!\nCheck " .. name .. " printer output slots!")
+assert(p.endPage(), "Failed to send page!\nCheck " .. name .. " output slots!")
 print("  Test page sent to printer.\n")
 print("Printer test completed.")
