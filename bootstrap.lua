@@ -1,4 +1,4 @@
-local bootstrapVersion = "0.2.7 beta"
+local bootstrapVersion = "0.3.0 beta"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
@@ -73,10 +73,7 @@ local function downloadDirectory(sourceDirectory, destinationDirectory)
 end
 
 local args = {...}
-local role = "base"
-if args ~= nil then
-	role = args[1]:lower()
-end
+local role = (args[1] or "base"):lower()
 
 print("Eaglenet Bootstrapper v" .. bootstrapVersion)
 print("Role: " .. role)
