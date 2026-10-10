@@ -1,4 +1,4 @@
-local bootstrapVersion = "0.1.0 alpha"
+local bootstrapVersion = "0.1.1 alpha"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
@@ -64,7 +64,7 @@ local function downloadDirectory(sourceDirectory, destinationDirectory)
 		local fileSuccess, fileErr = getFile(sourcePath, destinationPath)
 
 		if not fileSuccess then
-			return false, fileErr
+			return false, file.name .. ": " .. fileErr
 		end
 	end
 
@@ -72,7 +72,7 @@ local function downloadDirectory(sourceDirectory, destinationDirectory)
 end
 
 local args = {...}
-local role = args[1].lower()
+local role = args[1]:lower()
 
 if role == nil then
 	role = "base"
@@ -92,14 +92,14 @@ local baseSuccess, baseErr = downloadDirectory("base", "/")
 if baseSuccess then
 	print("Successfully downloaded base scripts")
 else
-	error("Error downloading directory: " .. baseErr)
+	error("Error downloading base scripts: " .. baseErr)
 end
 
 local roleSuccess, roleErr = downloadDirectory(role, "/")
 if roleSuccess then
 	print("Successfully downloaded " .. role .. " scripts")
 else
-	error("Error downloading directory: " .. roleErr)
+	error("Error downloading " .. role .. " scripts: " .. roleErr)
 end
 
 print("Bootstrap process completed successfully.")
