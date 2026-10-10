@@ -2,19 +2,19 @@ print("ERSA Printer Test Program\n")
 local p = peripheral.find("printer")
 assert(p, "No printer found!")
 local name = peripheral.getName(p)
-local pageWidth, pageHeight = p.getPageSize()
 print("Found printer: " .. name)
-
-local currentLine = 1
 
 local function printLine(text)
     p.setCursorPos(1, currentLine)
-    print(text)
+    p.write(text)
     currentLine = currentLine + 1
 end
 
 p.newPage()
 p.setPageTitle("ERSA Printer Test Page")
+
+local currentLine = 1
+local pageWidth, pageHeight = p.getPageSize()
 
 printLine(" EagleRock Space Agency")
 printLine("   Printer Test Page")
@@ -25,8 +25,7 @@ printLine("Test Time: " .. os.date("%H:%M:%S"))
 printLine("Computer ID: " .. os.getComputerID())
 printLine("Label: " .. (os.getComputerLabel() or "Unassigned"))
 printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
-printLine("Printer ID: " .. side)
-printLine("Printer Name: " .. name)
+printLine("Printer ID: " .. name)
 printLine("Page Size: " .. (pageWidth or "??") .. "x" .. (pageHeight or "??"))
 printLine("Paper Level: " .. (p.getPaperLevel() or "??"))
 printLine("Ink Level: " .. (p.getInkLevel() or "??"))
