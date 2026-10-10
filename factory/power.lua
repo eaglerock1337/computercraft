@@ -1,4 +1,4 @@
-mfsus = {}
+local mfsus = {}
 mfsus[1] = peripheral.wrap("ic2:mfsu_4")
 mfsus[2] = peripheral.wrap("ic2:mfsu_5")
 mfsus[3] = peripheral.wrap("ic2:mfsu_6")
@@ -6,39 +6,39 @@ mfsus[4] = peripheral.wrap("ic2:mfsu_7")
 
 print("MFSU Charge Status")
 print("------------------")
-totalCap = 0
-totalChg = 0
-for i = 1, 4 do
-    charge = mfsus[i].getEUStored()
-    capacity = mfsus[i].getEUCapacity()
+local totalCap = 0
+local totalChg = 0
+for i = 1, #mfsus do
+    local charge = mfsus[i].getEUStored()
+    local capacity = mfsus[i].getEUCapacity()
     totalChg = totalChg + charge
     totalCap = totalCap + capacity
-    pct = math.floor(charge / capacity * 10000) / 100
+    local pct = math.floor(charge / capacity * 10000) / 100
     print("MFSU", i, ":", pct, "% full")
 end
 
 print()
-totalPct = math.floor(totalChg / totalCap * 10000) / 100
+local totalPct = math.floor(totalChg / totalCap * 10000) / 100
 totalCap = math.floor(totalCap / 10000) / 100
 totalChg = math.floor(totalChg / 10000) / 100
 print("Total Charge:", totalChg, "Million EU")
 print("Total Capacity:", totalCap, "Million EU")
-print("Total Percentage:", totalPct, "Percent")
+print("Total Percentage:", totalPct .. "%")
 
-lp = peripheral.wrap("LogisticsPipes:Request_1")
-items = lp.getAvailableItems()
-cellSize = 20000
-wc = items[30]
-ewc = items[234]
+local lp = peripheral.wrap("LogisticsPipes:Request_1")
+local items = lp.getAvailableItems()
+local cellSize = 20000
+local wc = items[30]
+local ewc = items[234]
 --print(wc.getValue1().getName())
 --print(ewc.getValue1().getName())
-empty = wc.getValue2()
-emptyEU = empty * cellSize / 1000000
-full = ewc.getValue2()
-fullEU = full * cellSize / 1000000
-total = empty + full
-totalEU = total * cellSize / 1000000
-pct = math.floor(full / total * 10000) / 100
+local empty = wc.getValue2()
+local emptyEU = empty * cellSize / 1000000
+local full = ewc.getValue2()
+local fullEU = full * cellSize / 1000000
+local total = empty + full
+local totalEU = total * cellSize / 1000000
+local pct = math.floor(full / total * 10000) / 100
 
 --print()
 --print("Strategic Power Reserve")
