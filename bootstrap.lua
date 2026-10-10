@@ -1,12 +1,10 @@
-local bootstrapVersion = "0.1.4 alpha"
+local bootstrapVersion = "0.1.5 alpha"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
 
 local function getFile(sourcePath, destinationPath)
-	local repoPath = repoUrlPrefix .. sourcePath
-
-	local response, err = http.get(repoPath)
+	local response, err = http.get(sourcePath)
 
 	if not response then
 		return false, "Failed to download file: " .. err
@@ -58,7 +56,7 @@ local function downloadDirectory(sourceDirectory, destinationDirectory)
 	end
 
 	for _, file in ipairs(files) do
-		local sourcePath = file.path
+		local sourcePath = file.download_url
 		local destinationPath = destinationDirectory .. "/" .. file.name
 
 		local fileSuccess, fileErr = getFile(sourcePath, destinationPath)
@@ -81,7 +79,7 @@ end
 print("Eaglenet Bootstrapper v" .. bootstrapVersion)
 print("Role: " .. role)
 
-local bootSuccess, bootErr = getFile(apiUrl .. "/bootstrap.lua", "/bootstrap.lua")
+local bootSuccess, bootErr = getFile(repoUrlPrefix .. "/bootstrap.lua", "/bootstrap.lua")
 if bootSuccess then
 	print("Successfully downloaded bootstrap.lua")
 else
