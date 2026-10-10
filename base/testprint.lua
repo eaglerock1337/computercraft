@@ -1,8 +1,8 @@
 -- EagleRock Space Agency Printer Test Script
-local version = "2.0.3"
+local version = "2.0.4"
 
 print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-print("\n= ERSA Printer Test v" .. version .. "  =")
+print("= ERSA Printer Test v" .. version .. "  =")
 print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
 local p = peripheral.find("printer")
 assert(p, "No printer found!")
