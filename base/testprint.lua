@@ -1,5 +1,5 @@
 -- EagleRock Space Agency Printer Test Script
-local version = "1.3.2"
+local version = "1.4.0"
 
 print("ERSA Printer Test  v" .. version)
 print("=-=-=-=-=-=-=-=-=-=-=-=-=\n")
@@ -23,7 +23,7 @@ print("\n  Printer is ready. Creating test page...")
 assert(p.newPage(), "Failed to create new page!\nCheck printer " .. name .. "!")
 
 print("  Writing test page...")
-p.setPageTitle("ERSA Printer Test Page")
+p.setPageTitle("ERSA Printer Test v" .. version)
 local currentLine = 1
 local pageWidth, pageHeight = p.getPageSize()
 
