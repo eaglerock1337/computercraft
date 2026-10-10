@@ -1,9 +1,11 @@
-local bootstrapVersion = "0.1.5 alpha"
+local bootstrapVersion = "0.2.0 alpha"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
 
 local function getFile(sourcePath, destinationPath)
+	print("Downloading file:", destinationPath)
+
 	local response, err = http.get(sourcePath)
 
 	if not response then
