@@ -1,10 +1,10 @@
-local bootstrapVersion = "0.2.0 alpha"
+local bootstrapVersion = "0.2.1 alpha"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
 
 local function getFile(sourcePath, destinationPath)
-	print("Downloading file:", destinationPath)
+	print("    Downloading:", destinationPath)
 
 	local response, err = http.get(sourcePath)
 
@@ -83,7 +83,8 @@ print("Role: " .. role)
 
 local bootSuccess, bootErr = getFile(repoUrlPrefix .. "/bootstrap.lua", "/bootstrap.lua")
 if bootSuccess then
-	print("Successfully downloaded bootstrap.lua")
+	local latestBootstrap = require("/bootstrap.lua")
+	print("Successfully downloaded bootstrap.lua version " .. latestBootstrap.bootstrapVersion)
 else
 	error("Error downloading bootstrap.lua: " .. bootErr)
 end
@@ -102,5 +103,6 @@ else
 	error("Error downloading " .. role .. " scripts: " .. roleErr)
 end
 
+print()
 print("Bootstrap process completed successfully.")
 print("Welcome to Eaglenet!")
