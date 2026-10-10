@@ -1,4 +1,4 @@
-local bootstrapVersion = "0.1.1 alpha"
+local bootstrapVersion = "0.1.2 alpha"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
@@ -79,7 +79,7 @@ if role == nil then
 end
 
 print("Eaglenet Bootstrapper v" .. bootstrapVersion)
-print("Role: " .. (role or "none"))
+print("Role: " .. role)
 
 local bootSuccess, bootErr = getFile("/bootstrap.lua", "/bootstrap.lua")
 if bootSuccess then
@@ -88,14 +88,14 @@ else
 	error("Error downloading bootstrap.lua: " .. bootErr)
 end
 
-local baseSuccess, baseErr = downloadDirectory("base", "/")
+local baseSuccess, baseErr = downloadDirectory("base", "")
 if baseSuccess then
 	print("Successfully downloaded base scripts")
 else
 	error("Error downloading base scripts: " .. baseErr)
 end
 
-local roleSuccess, roleErr = downloadDirectory(role, "/")
+local roleSuccess, roleErr = downloadDirectory(role, "")
 if roleSuccess then
 	print("Successfully downloaded " .. role .. " scripts")
 else
