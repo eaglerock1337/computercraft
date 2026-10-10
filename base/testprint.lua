@@ -1,0 +1,38 @@
+local args = {...}
+local side = args[1]:lower()
+local currentLine = 1
+
+if side == nil then
+	side = "left"
+end
+
+local function printLine(text)
+    p.setCursorPos(1, currentLine)
+    print(text)
+    currentLine = currentLine + 1
+end
+
+print("ERSA Printer Test Program\n")
+local p = peripheral.find("printer")
+assert(p, "No printer found!")
+local name = peripheral.getName(p)
+local pageWidth, pageHeight = p.getPageSize()
+print("Found printer: " .. name)
+
+printLine(" EagleRock Space Agency")
+printLine("   Printer Test Page")
+printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
+printLine("Test Day: " .. os.date("%A"))
+printLine("Test Date: " .. os.date("%Y-%m-%d"))
+printLine("Test Time: " .. os.date("%H:%M:%S"))
+printLine("Computer ID: " .. os.getComputerID())
+printLine("Label: " .. (os.getComputerLabel() or "Unassigned"))
+printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
+printLine("Printer ID: " .. side)
+printLine("Printer Name: " .. name)
+printLine("Page Size: " .. (pageWidth or "??") .. "x" .. (pageHeight or "??"))
+printLine("Paper Level: " .. (p.getPaperLevel() or "??"))
+printLine("Ink Level: " .. (p.getInkLevel() or "??"))
+printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
+printLine("End of Test Page")
+printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
