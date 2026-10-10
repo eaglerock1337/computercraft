@@ -1,7 +1,7 @@
 -- EagleRock Space Agency Printer Test Script
 local version = "2.0.4"
 
-print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+print("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 print("= ERSA Printer Test v" .. version .. "  =")
 print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n")
 local p = peripheral.find("printer")
