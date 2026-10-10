@@ -1,4 +1,4 @@
-local bootstrapVersion = "0.1.2 alpha"
+local bootstrapVersion = "0.1.3 alpha"
 
 local repoUrlPrefix = "https://raw.githubusercontent.com/eaglerock1337/computercraft/main"
 local apiUrl = "https://api.github.com/repos/eaglerock1337/computercraft/contents/"
@@ -9,7 +9,7 @@ local function getFile(sourcePath, destinationPath)
 	local response, err = http.get(repoPath)
 
 	if not response then
-		return false, err
+		return false, "Failed to download file: " .. err
 	end
 
 	local contents = response.readAll()
@@ -18,7 +18,7 @@ local function getFile(sourcePath, destinationPath)
 	local file, fileErr = fs.open(destinationPath, "w")
 
 	if not file then
-		return false, fileErr
+		return false, "Failed to open file: " .. fileErr
 	end
 
 	file.write(contents)
