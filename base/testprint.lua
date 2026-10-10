@@ -1,12 +1,12 @@
 -- EagleRock Space Agency Printer Test Script
-local version = "1.3.1"
+local version = "1.3.2"
 
-print("ERSA Printer Test v" .. version)
+print("ERSA Printer Test  v" .. version)
 print("=-=-=-=-=-=-=-=-=-=-=-=-=\n")
 local p = peripheral.find("printer")
 assert(p, "No printer found!")
 local name = peripheral.getName(p)
-print("Found printer: " .. name)
+print("  Found printer: " .. name)
 print("  Checking supplies...")
 
 local inkLevel = p.getInkLevel()
@@ -19,10 +19,10 @@ if inkLevel == 0 or paperLevel == 0 then
   error("Please resupply " .. name .. "!")
 end
 
-print("\nPrinter is ready. Creating test page...")
+print("\n  Printer is ready. Creating test page...")
 assert(p.newPage(), "Failed to create new page!\nCheck printer " .. name .. "!")
 
-print("Writing test page...")
+print("  Writing test page...")
 p.setPageTitle("ERSA Printer Test Page")
 local currentLine = 1
 local pageWidth, pageHeight = p.getPageSize()
@@ -56,5 +56,5 @@ printLine("    End of Test Page")
 printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 assert(p.endPage(), "Failed to end page! Check printer " .. name .. "!")
-print("Test page sent to printer.\n")
+print("  Test page sent to printer.\n")
 print("Printer test completed.")
