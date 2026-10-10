@@ -1,11 +1,3 @@
-local args = {...}
-local side = args[1]:lower()
-local currentLine = 1
-
-if side == nil then
-	side = "left"
-end
-
 local function printLine(text)
     p.setCursorPos(1, currentLine)
     print(text)
