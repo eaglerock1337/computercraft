@@ -1,5 +1,5 @@
 -- EagleRock Space Agency Printer Test Script
-local version = "2.0.4"
+local version = "2.0.5"
 
 print("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 print("= ERSA Printer Test v" .. version .. "  =")
@@ -44,12 +44,12 @@ printLine("  Test Version: " .. version)
 printLine("  Computer ID: " .. os.getComputerID())
 printLine("  Hostname: " .. (os.getComputerLabel() or "Unassigned"))
 printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
-printLine("  Printer ID: " .. name)
-printLine("  Page Size: " .. pageWidth .. "x" .. pageHeight)
+printLine("  Printer:  " .. name)
+printLine("  Page Size:   " .. pageWidth .. "x" .. pageHeight)
 printLine("  Paper Level: " .. paperLevel)
-printLine("  Ink Level: " .. inkLevel)
+printLine("  Ink Level:   " .. inkLevel)
 printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
-printLine("  Test Day: " .. os.date("%A"))
+printLine("  Test Day:  " .. os.date("%A"))
 printLine("  Test Date: " .. os.date("%Y-%m-%d"))
 printLine("  Test Time: " .. os.date("%H:%M:%S"))
 printLine("=-=-=-=-=-=-=-=-=-=-=-=-=")
