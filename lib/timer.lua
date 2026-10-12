@@ -1,4 +1,4 @@
--- Timer module for scheduling and executing callbacks at specified intervals.
+-- Timer class for scheduling and executing callbacks at specified intervals.
 --
 -- Usage Example:
 --   local myBasicTimer = Timer:new(30)

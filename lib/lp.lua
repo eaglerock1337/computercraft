@@ -1,3 +1,4 @@
+-- A library for LogisticsPipes interactions and utilities.
 local lp = {}
 
 function lp.getCounts(items)
