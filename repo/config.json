@@ -1,0 +1,14 @@
+{
+    "protocol": "eaglenet.repo",
+    "modem": "back",
+    "appDir": "/srv",
+    "repoDir": "/repo",
+    "manifest": "/srv/manifest.json",
+    "syncFrequency": 60,
+    "github": {
+        "account": "eaglerock",
+        "repo": "computercraft",
+        "branch": "main"
+    }
+}
+
