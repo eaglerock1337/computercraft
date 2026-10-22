@@ -3,9 +3,10 @@
     "modem": "back",
     "appDir": "/srv",
     "repoDir": "/repo",
-    "manifest": "/srv/manifest.json",
-    "syncFrequency": 60,
-    "github": {
+    "manifest": "manifest.json",
+    "syncInterval": 60,
+    "remote": {
+        "baseUrl": "https://raw.githubusercontent.com",
         "account": "eaglerock",
         "repo": "computercraft",
         "branch": "main"
